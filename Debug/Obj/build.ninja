@@ -1,0 +1,29 @@
+#Generating source browse information for project uart_test
+
+
+#Abbreviations
+cc = C$:\Program$ Files$ (x86)\IAR$ Systems\Embedded$ Workbench$ 8.3\common\bin\SourceIndexer.exe
+ll = C$:\Program$ Files$ (x86)\IAR$ Systems\Embedded$ Workbench$ 8.3\common\bin\PbdLink.exe
+bd = C$:\Program$ Files$ (x86)\IAR$ Systems\Embedded$ Workbench$ 8.3\common\bin\makeBrowseData.exe
+
+
+
+#Rules
+rule index
+  depfile = $out.dep
+  command = $cc -out=$out -f $in
+rule link
+  command = $ll -M $out $in
+rule browsedata
+  command = $bd $in -output  $out
+
+
+
+#Build steps
+build DTC.pbi : index DTC.xcl
+build main.pbi : index main.xcl
+build Systick_Timer.pbi : index Systick_Timer.xcl
+build uart_test.pbd : link DTC.pbi main.pbi Systick_Timer.pbi
+build uart_test.pbw : browsedata uart_test.pbd
+
+

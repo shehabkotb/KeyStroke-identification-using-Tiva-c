@@ -1,0 +1,225 @@
+###############################################################################
+#
+# IAR ELF Linker V8.40.2.214/W32 for ARM                  17/Dec/2019  22:55:44
+# Copyright 2007-2019 IAR Systems AB.
+#
+#    Output file  =
+#        C:\Users\lilwiz\Documents\embedded projects\uart
+#        test\Debug\Exe\uart_test.out
+#    Map file     =
+#        C:\Users\lilwiz\Documents\embedded projects\uart
+#        test\Debug\List\uart_test.map
+#    Command line =
+#        -f C:\Users\lilwiz\AppData\Local\Temp\EWDD0A.tmp
+#        ("C:\Users\lilwiz\Documents\embedded projects\uart
+#        test\Debug\Obj\DTC.o" "C:\Users\lilwiz\Documents\embedded
+#        projects\uart test\Debug\Obj\main.o"
+#        "C:\Users\lilwiz\Documents\embedded projects\uart
+#        test\Debug\Obj\Systick_Timer.o" --no_out_extension -o
+#        "C:\Users\lilwiz\Documents\embedded projects\uart
+#        test\Debug\Exe\uart_test.out" --redirect _Printf=_PrintfFullNoMb
+#        --redirect _Scanf=_ScanfFullNoMb --map
+#        "C:\Users\lilwiz\Documents\embedded projects\uart
+#        test\Debug\List\uart_test.map" --config "C:\Program Files (x86)\IAR
+#        Systems\Embedded Workbench
+#        8.3\arm\config\linker\TexasInstruments\TM4C123GH6.icf" --semihosting
+#        --entry __iar_program_start --vfe --text_out locale)
+#
+###############################################################################
+
+*******************************************************************************
+*** RUNTIME MODEL ATTRIBUTES
+***
+
+CppFlavor       = *
+__Heap_Handler  = Basic
+__SystemLibrary = DLib
+__dlib_version  = 6
+
+
+*******************************************************************************
+*** HEAP SELECTION
+***
+
+The basic heap was selected because some modules are built with
+size limitations (and not runtime checking), and --advanced_heap
+was not specified.
+
+
+*******************************************************************************
+*** PLACEMENT SUMMARY
+***
+
+"A0":  place at address 0x0 { ro section .intvec };
+"P1":  place in [from 0x0 to 0x3'ffff] { ro };
+define block CSTACK with size = 4K, alignment = 8 { };
+define block HEAP with size = 8K, alignment = 8 { };
+"P2":  place in [from 0x2000'0000 to 0x2000'7fff] {
+          rw, block CSTACK, block HEAP };
+
+No sections matched the following patterns:
+
+  rw  in "P2"
+
+
+  Section   Kind         Address    Size  Object
+  -------   ----         -------    ----  ------
+"A0":                               0x40
+  .intvec   ro code          0x0    0x40  vector_table_M.o [4]
+                          - 0x40    0x40
+
+"P1":                              0x8e0
+  .text     ro code         0x40   0x37c  main.o [1]
+  .text     ro code        0x3bc    0x3c  Systick_Timer.o [1]
+  .text     ro code        0x3f8    0x36  strlen.o [4]
+  .text     ro code        0x42e     0x2  vector_table_M.o [4]
+  .text     ro code        0x430    0x1a  U32ToDbl.o [3]
+  .text     ro code        0x44c   0x1a2  DblMul.o [3]
+  .text     ro code        0x5f0    0x3a  DblToS32.o [3]
+  .text     ro code        0x62c    0x56  ABImemcpy_unaligned.o [4]
+  .text     ro code        0x684    0x66  ABImemset.o [4]
+  .text     ro code        0x6ec    0x12  strcmp.o [4]
+  .rodata   const          0x700   0x168  main.o [1]
+  .text     ro code        0x868    0x22  fpinit_M.o [3]
+  .text     ro code        0x88c    0x1e  cmain.o [4]
+  .text     ro code        0x8aa     0x4  low_level_init.o [2]
+  .text     ro code        0x8ae     0x4  exit.o [2]
+  .text     ro code        0x8b4     0xa  cexit.o [4]
+  .text     ro code        0x8c0    0x14  exit.o [5]
+  .rodata   const          0x8d4    0x1c  main.o [1]
+  .rodata   const          0x8f0     0xc  main.o [1]
+  .rodata   const          0x8fc     0xc  main.o [1]
+  .rodata   const          0x908     0xc  main.o [1]
+  .text     ro code        0x914     0xc  cstartup_M.o [4]
+                         - 0x920   0x8e0
+
+"P2":                             0x1000
+  CSTACK             0x2000'0000  0x1000  <Block>
+    CSTACK  uninit   0x2000'0000  0x1000  <Block tail>
+                   - 0x2000'1000  0x1000
+
+Unused ranges:
+
+         From           To      Size
+         ----           --      ----
+        0x920     0x3'ffff  0x3'f6e0
+  0x2000'1000  0x2000'7fff    0x7000
+
+
+
+*******************************************************************************
+*** MODULE SUMMARY
+***
+
+    Module                 ro code  ro data  rw data
+    ------                 -------  -------  -------
+command line/config:
+    ------------------------------------------------
+    Total:
+
+C:\Users\lilwiz\Documents\embedded projects\uart test\Debug\Obj: [1]
+    Systick_Timer.o             60
+    main.o                     892      424
+    ------------------------------------------------
+    Total:                     952      424
+
+dl7M_tln.a: [2]
+    exit.o                       4
+    low_level_init.o             4
+    ------------------------------------------------
+    Total:                       8
+
+m7M_tls.a: [3]
+    DblMul.o                   418
+    DblToS32.o                  58
+    U32ToDbl.o                  26
+    fpinit_M.o                  34
+    ------------------------------------------------
+    Total:                     536
+
+rt7M_tl.a: [4]
+    ABImemcpy_unaligned.o       86
+    ABImemset.o                102
+    cexit.o                     10
+    cmain.o                     30
+    cstartup_M.o                12
+    strcmp.o                    18
+    strlen.o                    54
+    vector_table_M.o            66
+    ------------------------------------------------
+    Total:                     378
+
+shb_l.a: [5]
+    exit.o                      20
+    ------------------------------------------------
+    Total:                      20
+
+    Gaps                        16        2
+    Linker created                             4'096
+----------------------------------------------------
+    Grand Total:             1'910      426    4'096
+
+
+*******************************************************************************
+*** ENTRY LIST
+***
+
+Entry                       Address  Size  Type      Object
+-----                       -------  ----  ----      ------
+?main                         0x88d        Code  Gb  cmain.o [4]
+CSTACK$$Base            0x2000'0000         --   Gb  - Linker created -
+CSTACK$$Limit           0x2000'1000         --   Gb  - Linker created -
+Configure_SysTick             0x3bd   0xc  Code  Gb  Systick_Timer.o [1]
+Port_init                     0x193  0x4c  Code  Gb  main.o [1]
+PrintString                    0x8f  0x16  Code  Gb  main.o [1]
+Region$$Table$$Base             0x0         --   Gb  - Linker created -
+Region$$Table$$Limit            0x0         --   Gb  - Linker created -
+SysTick_Wait1ms               0x3c9  0x22  Code  Gb  Systick_Timer.o [1]
+Uart_init                     0x149  0x4a  Code  Gb  main.o [1]
+__aeabi_d2iz                  0x5f1        Code  Gb  DblToS32.o [3]
+__aeabi_dmul                  0x44d        Code  Gb  DblMul.o [3]
+__aeabi_memset                0x685        Code  Gb  ABImemset.o [4]
+__aeabi_ui2d                  0x431        Code  Gb  U32ToDbl.o [3]
+__cmain                       0x88d        Code  Gb  cmain.o [4]
+__exit                        0x8c1  0x14  Code  Gb  exit.o [5]
+__iar_Memset                  0x685        Code  Gb  ABImemset.o [4]
+__iar_Memset_word             0x68d        Code  Gb  ABImemset.o [4]
+__iar_init_vfp                0x869        Code  Gb  fpinit_M.o [3]
+__iar_program_start           0x915        Code  Gb  cstartup_M.o [4]
+__iar_unaligned_memcpy4
+                              0x62d        Code  Gb  ABImemcpy_unaligned.o [4]
+__iar_unaligned_memcpy8
+                              0x62d        Code  Gb  ABImemcpy_unaligned.o [4]
+__low_level_init              0x8ab   0x4  Code  Gb  low_level_init.o [2]
+__vector_table                  0x0        Data  Gb  vector_table_M.o [4]
+_call_main                    0x899        Code  Gb  cmain.o [4]
+_exit                         0x8b5        Code  Gb  cexit.o [4]
+_main                         0x8a7        Code  Gb  cmain.o [4]
+blinkGreen                     0x61  0x1e  Code  Gb  main.o [1]
+blinkRed                       0x41  0x20  Code  Gb  main.o [1]
+exit                          0x8af   0x4  Code  Gb  exit.o [2]
+getDelay                      0x1df  0x32  Code  Gb  main.o [1]
+itoa                           0xc7  0x3c  Code  Gb  main.o [1]
+main                          0x257  0xe6  Code  Gb  main.o [1]
+oneShotConfigure              0x123  0x26  Code  Gb  main.o [1]
+printChar                      0x7f  0x10  Code  Gb  main.o [1]
+printDelays                   0x221  0x36  Code  Gb  main.o [1]
+printInt                      0x211  0x10  Code  Gb  main.o [1]
+reverse                        0xa5  0x22  Code  Gb  main.o [1]
+strcmp                        0x6ed        Code  Gb  strcmp.o [4]
+strlen                        0x3f9        Code  Gb  strlen.o [4]
+waitForFirstInput             0x103  0x20  Code  Gb  main.o [1]
+
+
+[1] = C:\Users\lilwiz\Documents\embedded projects\uart test\Debug\Obj
+[2] = dl7M_tln.a
+[3] = m7M_tls.a
+[4] = rt7M_tl.a
+[5] = shb_l.a
+
+  1'910 bytes of readonly  code memory
+    426 bytes of readonly  data memory
+  4'096 bytes of readwrite data memory
+
+Errors: none
+Warnings: none
