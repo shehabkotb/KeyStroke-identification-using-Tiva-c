@@ -1,6 +1,11 @@
-main.pbi: C:\Users\lilwiz\Documents\embedded\ projects\uart\ test\DTC.h \
+main.pbi: \
+  C:\Users\lilwiz\Documents\embedded\ projects\uart\ test\driverlib\eeprom.h \
+  C:\Users\lilwiz\Documents\embedded\ projects\uart\ test\driverlib\sysctl.h \
+  C:\Users\lilwiz\Documents\embedded\ projects\uart\ test\DecisionTree.h \
   C:\Users\lilwiz\Documents\embedded\ projects\uart\ test\KeyStroke.h \
   C:\Users\lilwiz\Documents\embedded\ projects\uart\ test\Systick_Timer.h \
+  C:\Users\lilwiz\Documents\embedded\ projects\uart\ test\globals.h \
+  C:\Program\ Files\ (x86)\IAR\ Systems\Embedded\ Workbench\ 8.3\arm\inc\c\stdbool.h \
   C:\Program\ Files\ (x86)\IAR\ Systems\Embedded\ Workbench\ 8.3\arm\inc\c\DLib_Product_stdlib.h \
   C:\Program\ Files\ (x86)\IAR\ Systems\Embedded\ Workbench\ 8.3\arm\inc\c\ycheck.h \
   C:\Program\ Files\ (x86)\IAR\ Systems\Embedded\ Workbench\ 8.3\arm\inc\c\stdlib.h \

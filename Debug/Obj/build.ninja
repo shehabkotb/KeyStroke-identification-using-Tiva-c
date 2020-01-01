@@ -20,10 +20,11 @@ rule browsedata
 
 
 #Build steps
-build DTC.pbi : index DTC.xcl
+build DecisionTree.pbi : index DecisionTree.xcl
+build KeyStroke.pbi : index KeyStroke.xcl
 build main.pbi : index main.xcl
 build Systick_Timer.pbi : index Systick_Timer.xcl
-build uart_test.pbd : link DTC.pbi main.pbi Systick_Timer.pbi
+build uart_test.pbd : link DecisionTree.pbi KeyStroke.pbi main.pbi Systick_Timer.pbi
 build uart_test.pbw : browsedata uart_test.pbd
 
 

@@ -1,6 +1,6 @@
 ###############################################################################
 #
-# IAR ELF Linker V8.40.2.214/W32 for ARM                  17/Dec/2019  22:55:44
+# IAR ELF Linker V8.40.2.214/W32 for ARM                  27/Dec/2019  23:03:42
 # Copyright 2007-2019 IAR Systems AB.
 #
 #    Output file  =
@@ -10,9 +10,12 @@
 #        C:\Users\lilwiz\Documents\embedded projects\uart
 #        test\Debug\List\uart_test.map
 #    Command line =
-#        -f C:\Users\lilwiz\AppData\Local\Temp\EWDD0A.tmp
+#        -f C:\Users\lilwiz\AppData\Local\Temp\EWE822.tmp
 #        ("C:\Users\lilwiz\Documents\embedded projects\uart
-#        test\Debug\Obj\DTC.o" "C:\Users\lilwiz\Documents\embedded
+#        test\Debug\Obj\DecisionTree.o" "C:\Users\lilwiz\Documents\embedded
+#        projects\uart test\Libraries\driverlib.a"
+#        "C:\Users\lilwiz\Documents\embedded projects\uart
+#        test\Debug\Obj\KeyStroke.o" "C:\Users\lilwiz\Documents\embedded
 #        projects\uart test\Debug\Obj\main.o"
 #        "C:\Users\lilwiz\Documents\embedded projects\uart
 #        test\Debug\Obj\Systick_Timer.o" --no_out_extension -o
@@ -26,6 +29,17 @@
 #        --entry __iar_program_start --vfe --text_out locale)
 #
 ###############################################################################
+
+*******************************************************************************
+*** MESSAGES
+***
+
+Warning[Lt009]: Inconsistent wchar_t size
+            eeprom.o(driverlib.a) and 3 other objects in driverlib.a have
+                      wchar_t size 16 bits
+            DecisionTree.o and 20 other objects, some of them in dl7M_tln.a and
+                      11 other libraries have wchar_t size 32 bits
+
 
 *******************************************************************************
 *** RUNTIME MODEL ATTRIBUTES
@@ -57,53 +71,86 @@ define block HEAP with size = 8K, alignment = 8 { };
 "P2":  place in [from 0x2000'0000 to 0x2000'7fff] {
           rw, block CSTACK, block HEAP };
 
-No sections matched the following patterns:
+  Section          Kind         Address    Size  Object
+  -------          ----         -------    ----  ------
+"A0":                                      0x40
+  .intvec          ro code          0x0    0x40  vector_table_M.o [5]
+                                 - 0x40    0x40
 
-  rw  in "P2"
+"P1":                                    0x14ec
+  .text            ro code         0x40   0x610  DecisionTree.o [1]
+  .text            ro code        0x650   0x170  heap0.o [2]
+  .text            ro code        0x7c0     0x4  heaptramp0.o [2]
+  .text            ro code        0x7c4    0x56  ABImemcpy_unaligned.o [5]
+  .text            ro code        0x81a    0x3a  zero_init3.o [5]
+  .text            ro code        0x854    0x2c  xgetmemchunk.o [2]
+  .text            ro code        0x880    0x12  xxmemxmemzero.o [2]
+  .text            ro code        0x892     0x2  vector_table_M.o [5]
+  .text            ro code        0x894   0x520  KeyStroke.o [1]
+  .text            ro code        0xdb4    0x90  sysctl.o [3]
+  .text            ro code        0xe44   0x174  eeprom.o [3]
+  .text            ro code        0xfb8    0x3c  Systick_Timer.o [1]
+  .text            ro code        0xff4    0x36  strlen.o [5]
+  .text            ro code       0x102c    0x1a  U32ToDbl.o [4]
+  .text            ro code       0x1048   0x1a2  DblMul.o [4]
+  .text            ro code       0x11ec    0x3a  DblToS32.o [4]
+  .text            ro code       0x1228    0x66  ABImemset.o [5]
+  .text            ro code       0x1290    0x12  strcmp.o [5]
+  .text            ro code       0x12a4    0xfc  main.o [1]
+  .text            ro code       0x13a0    0x28  data_init.o [5]
+  .text            ro code       0x13c8    0x22  fpinit_M.o [4]
+  .iar.init_table  const         0x13ec    0x10  - Linker created -
+  .rodata          const         0x13fc    0x20  main.o [1]
+  .rodata          const         0x141c    0x20  main.o [1]
+  .text            ro code       0x143c    0x1e  cmain.o [5]
+  .text            ro code       0x145a     0x4  low_level_init.o [2]
+  .text            ro code       0x145e     0x4  exit.o [2]
+  .text            ro code       0x1464     0xa  cexit.o [5]
+  .text            ro code       0x1470    0x14  exit.o [6]
+  .rodata          const         0x1484    0x1c  KeyStroke.o [1]
+  .rodata          const         0x14a0    0x18  main.o [1]
+  .rodata          const         0x14b8    0x18  main.o [1]
+  .rodata          const         0x14d0    0x14  KeyStroke.o [1]
+  .rodata          const         0x14e4    0x10  main.o [1]
+  .rodata          const         0x14f4     0xc  KeyStroke.o [1]
+  .rodata          const         0x1500     0xc  KeyStroke.o [1]
+  .rodata          const         0x150c     0xc  KeyStroke.o [1]
+  .text            ro code       0x1518     0xc  cstartup_M.o [5]
+  .rodata          const         0x1524     0x8  DecisionTree.o [1]
+  .rodata          const         0x152c     0x0  zero_init3.o [5]
+                               - 0x152c  0x14ec
 
+"P2", part 1 of 2:                        0x1b4
+  .bss             zero     0x2000'0000   0x1a8  KeyStroke.o [1]
+  .bss             zero     0x2000'01a8     0x8  heap0.o [2]
+  .bss             zero     0x2000'01b0     0x4  xgetmemchunk.o [2]
+                          - 0x2000'01b4   0x1b4
 
-  Section   Kind         Address    Size  Object
-  -------   ----         -------    ----  ------
-"A0":                               0x40
-  .intvec   ro code          0x0    0x40  vector_table_M.o [4]
-                          - 0x40    0x40
-
-"P1":                              0x8e0
-  .text     ro code         0x40   0x37c  main.o [1]
-  .text     ro code        0x3bc    0x3c  Systick_Timer.o [1]
-  .text     ro code        0x3f8    0x36  strlen.o [4]
-  .text     ro code        0x42e     0x2  vector_table_M.o [4]
-  .text     ro code        0x430    0x1a  U32ToDbl.o [3]
-  .text     ro code        0x44c   0x1a2  DblMul.o [3]
-  .text     ro code        0x5f0    0x3a  DblToS32.o [3]
-  .text     ro code        0x62c    0x56  ABImemcpy_unaligned.o [4]
-  .text     ro code        0x684    0x66  ABImemset.o [4]
-  .text     ro code        0x6ec    0x12  strcmp.o [4]
-  .rodata   const          0x700   0x168  main.o [1]
-  .text     ro code        0x868    0x22  fpinit_M.o [3]
-  .text     ro code        0x88c    0x1e  cmain.o [4]
-  .text     ro code        0x8aa     0x4  low_level_init.o [2]
-  .text     ro code        0x8ae     0x4  exit.o [2]
-  .text     ro code        0x8b4     0xa  cexit.o [4]
-  .text     ro code        0x8c0    0x14  exit.o [5]
-  .rodata   const          0x8d4    0x1c  main.o [1]
-  .rodata   const          0x8f0     0xc  main.o [1]
-  .rodata   const          0x8fc     0xc  main.o [1]
-  .rodata   const          0x908     0xc  main.o [1]
-  .text     ro code        0x914     0xc  cstartup_M.o [4]
-                         - 0x920   0x8e0
-
-"P2":                             0x1000
-  CSTACK             0x2000'0000  0x1000  <Block>
-    CSTACK  uninit   0x2000'0000  0x1000  <Block tail>
-                   - 0x2000'1000  0x1000
+"P2", part 2 of 2:                       0x3000
+  CSTACK                    0x2000'01b8  0x1000  <Block>
+    CSTACK         uninit   0x2000'01b8  0x1000  <Block tail>
+  HEAP                      0x2000'11b8  0x2000  <Block>
+    HEAP           uninit   0x2000'11b8  0x2000  <Block tail>
+                          - 0x2000'31b8  0x3000
 
 Unused ranges:
 
          From           To      Size
          ----           --      ----
-        0x920     0x3'ffff  0x3'f6e0
-  0x2000'1000  0x2000'7fff    0x7000
+       0x152c     0x3'ffff  0x3'ead4
+  0x2000'01b4  0x2000'01b7       0x4
+  0x2000'31b8  0x2000'7fff    0x4e48
+
+
+*******************************************************************************
+*** INIT TABLE
+***
+
+          Address      Size
+          -------      ----
+Zero (__iar_zero_init3)
+    1 destination range, total size 0x1b4:
+          0x2000'0000  0x1b4
 
 
 
@@ -118,18 +165,30 @@ command line/config:
     Total:
 
 C:\Users\lilwiz\Documents\embedded projects\uart test\Debug\Obj: [1]
+    DecisionTree.o           1'552        8
+    KeyStroke.o              1'312       84      424
     Systick_Timer.o             60
-    main.o                     892      424
+    main.o                     252      128
     ------------------------------------------------
-    Total:                     952      424
+    Total:                   3'176      220      424
 
 dl7M_tln.a: [2]
     exit.o                       4
+    heap0.o                    368                 8
+    heaptramp0.o                 4
     low_level_init.o             4
+    xgetmemchunk.o              44                 4
+    xxmemxmemzero.o             18
     ------------------------------------------------
-    Total:                       8
+    Total:                     442                12
 
-m7M_tls.a: [3]
+driverlib.a: [3]
+    eeprom.o                   372
+    sysctl.o                   144
+    ------------------------------------------------
+    Total:                     516
+
+m7M_tls.a: [4]
     DblMul.o                   418
     DblToS32.o                  58
     U32ToDbl.o                  26
@@ -137,89 +196,138 @@ m7M_tls.a: [3]
     ------------------------------------------------
     Total:                     536
 
-rt7M_tl.a: [4]
+rt7M_tl.a: [5]
     ABImemcpy_unaligned.o       86
     ABImemset.o                102
     cexit.o                     10
     cmain.o                     30
     cstartup_M.o                12
+    data_init.o                 40
     strcmp.o                    18
     strlen.o                    54
     vector_table_M.o            66
+    zero_init3.o                58
     ------------------------------------------------
-    Total:                     378
+    Total:                     476
 
-shb_l.a: [5]
+shb_l.a: [6]
     exit.o                      20
     ------------------------------------------------
     Total:                      20
 
     Gaps                        16        2
-    Linker created                             4'096
+    Linker created                       16   12'288
 ----------------------------------------------------
-    Grand Total:             1'910      426    4'096
+    Grand Total:             5'182      238   12'724
 
 
 *******************************************************************************
 *** ENTRY LIST
 ***
 
-Entry                       Address  Size  Type      Object
------                       -------  ----  ----      ------
-?main                         0x88d        Code  Gb  cmain.o [4]
-CSTACK$$Base            0x2000'0000         --   Gb  - Linker created -
-CSTACK$$Limit           0x2000'1000         --   Gb  - Linker created -
-Configure_SysTick             0x3bd   0xc  Code  Gb  Systick_Timer.o [1]
-Port_init                     0x193  0x4c  Code  Gb  main.o [1]
-PrintString                    0x8f  0x16  Code  Gb  main.o [1]
-Region$$Table$$Base             0x0         --   Gb  - Linker created -
-Region$$Table$$Limit            0x0         --   Gb  - Linker created -
-SysTick_Wait1ms               0x3c9  0x22  Code  Gb  Systick_Timer.o [1]
-Uart_init                     0x149  0x4a  Code  Gb  main.o [1]
-__aeabi_d2iz                  0x5f1        Code  Gb  DblToS32.o [3]
-__aeabi_dmul                  0x44d        Code  Gb  DblMul.o [3]
-__aeabi_memset                0x685        Code  Gb  ABImemset.o [4]
-__aeabi_ui2d                  0x431        Code  Gb  U32ToDbl.o [3]
-__cmain                       0x88d        Code  Gb  cmain.o [4]
-__exit                        0x8c1  0x14  Code  Gb  exit.o [5]
-__iar_Memset                  0x685        Code  Gb  ABImemset.o [4]
-__iar_Memset_word             0x68d        Code  Gb  ABImemset.o [4]
-__iar_init_vfp                0x869        Code  Gb  fpinit_M.o [3]
-__iar_program_start           0x915        Code  Gb  cstartup_M.o [4]
+Entry                       Address   Size  Type      Object
+-----                       -------   ----  ----      ------
+.iar.init_table$$Base        0x13ec          --   Gb  - Linker created -
+.iar.init_table$$Limit       0x13fc          --   Gb  - Linker created -
+?main                        0x143d         Code  Gb  cmain.o [5]
+Aldata                  0x2000'01a8    0x8  Data  Lc  heap0.o [2]
+CSTACK$$Base            0x2000'01b8          --   Gb  - Linker created -
+CSTACK$$Limit           0x2000'11b8          --   Gb  - Linker created -
+Configure_SysTick             0xfb9    0xc  Code  Gb  Systick_Timer.o [1]
+EEPROMInit                    0xe9d   0x2a  Code  Gb  eeprom.o [3]
+EEPROMProgram                 0xeff   0x98  Code  Gb  eeprom.o [3]
+EEPROMRead                    0xed5   0x2a  Code  Gb  eeprom.o [3]
+EEPROM_init                   0x97b   0x22  Code  Gb  KeyStroke.o [1]
+Gini_Index                     0xd1   0x5c  Code  Gb  DecisionTree.o [1]
+HEAP$$Base              0x2000'11b8          --   Gb  - Linker created -
+HEAP$$Limit             0x2000'31b8          --   Gb  - Linker created -
+Igain                         0x14b   0x62  Code  Gb  DecisionTree.o [1]
+Port_init                     0x8ef   0x5c  Code  Gb  KeyStroke.o [1]
+PrintString                   0xa4d   0x16  Code  Gb  KeyStroke.o [1]
+Region$$Table$$Base          0x13ec          --   Gb  - Linker created -
+Region$$Table$$Limit         0x13fc          --   Gb  - Linker created -
+SysCtlDelay                   0xe31    0x8  Code  Gb  sysctl.o [3]
+SysCtlPeripheralEnable        0xe15    0x8  Code  Gb  sysctl.o [3]
+SysCtlPeripheralReady         0xdb5    0x8  Code  Gb  sysctl.o [3]
+SysCtlPeripheralReset         0xdd5   0x40  Code  Gb  sysctl.o [3]
+SysTick_Wait1ms               0xfc5   0x22  Code  Gb  Systick_Timer.o [1]
+Uart_init                     0x895   0x5a  Code  Gb  KeyStroke.o [1]
+_EEPROMSectorMaskClear        0xe6f   0x22  Code  Lc  eeprom.o [3]
+_EEPROMSectorMaskSet          0xe45   0x2a  Code  Lc  eeprom.o [3]
+__aeabi_d2iz                 0x11ed         Code  Gb  DblToS32.o [4]
+__aeabi_dmul                 0x1049         Code  Gb  DblMul.o [4]
+__aeabi_memset               0x1229         Code  Gb  ABImemset.o [5]
+__aeabi_ui2d                 0x102d         Code  Gb  U32ToDbl.o [4]
+__basic_calloc                0x785   0x36  Code  Gb  heap0.o [2]
+__basic_free                  0x6fb   0x16  Code  Gb  heap0.o [2]
+__basic_free_intern           0x711   0x74  Code  Lc  heap0.o [2]
+__basic_malloc                0x651   0x18  Code  Gb  heap0.o [2]
+__basic_malloc_intern         0x669   0x92  Code  Lc  heap0.o [2]
+__cmain                      0x143d         Code  Gb  cmain.o [5]
+__data_GetMemChunk            0x855   0x2c  Code  Gb  xgetmemchunk.o [2]
+__data_GetMemChunk::start
+                        0x2000'01b0    0x4  Data  Lc  xgetmemchunk.o [2]
+__data_memzero                0x881   0x12  Code  Gb  xxmemxmemzero.o [2]
+__exit                       0x1471   0x14  Code  Gb  exit.o [6]
+__iar_Memset                 0x1229         Code  Gb  ABImemset.o [5]
+__iar_Memset_word            0x1231         Code  Gb  ABImemset.o [5]
+__iar_data_init3             0x13a1   0x28  Code  Gb  data_init.o [5]
+__iar_init_vfp               0x13c9         Code  Gb  fpinit_M.o [4]
+__iar_program_start          0x1519         Code  Gb  cstartup_M.o [5]
 __iar_unaligned_memcpy4
-                              0x62d        Code  Gb  ABImemcpy_unaligned.o [4]
+                              0x7c5         Code  Gb  ABImemcpy_unaligned.o [5]
 __iar_unaligned_memcpy8
-                              0x62d        Code  Gb  ABImemcpy_unaligned.o [4]
-__low_level_init              0x8ab   0x4  Code  Gb  low_level_init.o [2]
-__vector_table                  0x0        Data  Gb  vector_table_M.o [4]
-_call_main                    0x899        Code  Gb  cmain.o [4]
-_exit                         0x8b5        Code  Gb  cexit.o [4]
-_main                         0x8a7        Code  Gb  cmain.o [4]
-blinkGreen                     0x61  0x1e  Code  Gb  main.o [1]
-blinkRed                       0x41  0x20  Code  Gb  main.o [1]
-exit                          0x8af   0x4  Code  Gb  exit.o [2]
-getDelay                      0x1df  0x32  Code  Gb  main.o [1]
-itoa                           0xc7  0x3c  Code  Gb  main.o [1]
-main                          0x257  0xe6  Code  Gb  main.o [1]
-oneShotConfigure              0x123  0x26  Code  Gb  main.o [1]
-printChar                      0x7f  0x10  Code  Gb  main.o [1]
-printDelays                   0x221  0x36  Code  Gb  main.o [1]
-printInt                      0x211  0x10  Code  Gb  main.o [1]
-reverse                        0xa5  0x22  Code  Gb  main.o [1]
-strcmp                        0x6ed        Code  Gb  strcmp.o [4]
-strlen                        0x3f9        Code  Gb  strlen.o [4]
-waitForFirstInput             0x103  0x20  Code  Gb  main.o [1]
+                              0x7c5         Code  Gb  ABImemcpy_unaligned.o [5]
+__iar_zero_init3              0x81b   0x3a  Code  Gb  zero_init3.o [5]
+__low_level_init             0x145b    0x4  Code  Gb  low_level_init.o [2]
+__vector_table                  0x0         Data  Gb  vector_table_M.o [5]
+_call_main                   0x1449         Code  Gb  cmain.o [5]
+_exit                        0x1465         Code  Gb  cexit.o [5]
+_main                        0x1457         Code  Gb  cmain.o [5]
+best_gain                     0x285   0xe2  Code  Gb  DecisionTree.o [1]
+blinkGreen                    0x9bf   0x20  Code  Gb  KeyStroke.o [1]
+blinkRed                      0x99d   0x22  Code  Gb  KeyStroke.o [1]
+build_tree                    0x3a1  0x184  Code  Gb  DecisionTree.o [1]
+copy                           0x41   0x50  Code  Gb  DecisionTree.o [1]
+exit                         0x145f    0x4  Code  Gb  exit.o [2]
+free                          0x7c1    0x4  Code  Gb  heaptramp0.o [2]
+getDelay                      0xa93   0x2e  Code  Gb  KeyStroke.o [1]
+getRecord                     0xb29   0x96  Code  Gb  KeyStroke.o [1]
+getUartchar                   0xae3   0x10  Code  Gb  KeyStroke.o [1]
+getchoice                     0xac1   0x22  Code  Gb  KeyStroke.o [1]
+is_empty                      0x379    0xe  Code  Gb  DecisionTree.o [1]
+itoa                          0xa01   0x3c  Code  Gb  KeyStroke.o [1]
+main                         0x12a5   0xfc  Code  Gb  main.o [1]
+new_element                   0x387   0x1a  Code  Gb  DecisionTree.o [1]
+num_of_classes                 0x91   0x40  Code  Gb  DecisionTree.o [1]
+oneShotConfigure              0x94b   0x30  Code  Gb  KeyStroke.o [1]
+partition                     0x1ad   0xd8  Code  Gb  DecisionTree.o [1]
+pop                           0x36f    0xa  Code  Gb  DecisionTree.o [1]
+predict                       0x563   0xe4  Code  Gb  DecisionTree.o [1]
+printChar                     0xa3d   0x10  Code  Gb  KeyStroke.o [1]
+printDelays                   0xaf3   0x36  Code  Gb  KeyStroke.o [1]
+printInt                      0xa63   0x10  Code  Gb  KeyStroke.o [1]
+push                          0x367    0x8  Code  Gb  DecisionTree.o [1]
+query                         0x12d   0x1e  Code  Gb  DecisionTree.o [1]
+read                    0x2000'0000  0x1a8  Data  Gb  KeyStroke.o [1]
+reverse                       0x9df   0x22  Code  Gb  KeyStroke.o [1]
+strcmp                       0x1291         Code  Gb  strcmp.o [5]
+strlen                        0xff5         Code  Gb  strlen.o [5]
+train                         0xbbf  0x170  Code  Gb  KeyStroke.o [1]
+tree                          0x525   0x3e  Code  Gb  DecisionTree.o [1]
+waitForFirstInput             0xa73   0x20  Code  Gb  KeyStroke.o [1]
 
 
 [1] = C:\Users\lilwiz\Documents\embedded projects\uart test\Debug\Obj
 [2] = dl7M_tln.a
-[3] = m7M_tls.a
-[4] = rt7M_tl.a
-[5] = shb_l.a
+[3] = driverlib.a
+[4] = m7M_tls.a
+[5] = rt7M_tl.a
+[6] = shb_l.a
 
-  1'910 bytes of readonly  code memory
-    426 bytes of readonly  data memory
-  4'096 bytes of readwrite data memory
+   5'182 bytes of readonly  code memory
+     238 bytes of readonly  data memory
+  12'724 bytes of readwrite data memory
 
 Errors: none
-Warnings: none
+Warnings: 1

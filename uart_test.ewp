@@ -2103,25 +2103,37 @@
             <data />
         </settings>
     </configuration>
+    <group>
+        <name>Source</name>
+        <file>
+            <name>$PROJ_DIR$\DecisionTree.c</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\DecisionTree.h</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\globals.h</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\KeyStroke.c</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\KeyStroke.h</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\main.c</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Systick_Timer.c</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Systick_Timer.h</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\tm4c123gh6pm.h</name>
+        </file>
+    </group>
     <file>
-        <name>$PROJ_DIR$\DTC.c</name>
-    </file>
-    <file>
-        <name>$PROJ_DIR$\DTC.h</name>
-    </file>
-    <file>
-        <name>$PROJ_DIR$\KeyStroke.h</name>
-    </file>
-    <file>
-        <name>$PROJ_DIR$\main.c</name>
-    </file>
-    <file>
-        <name>$PROJ_DIR$\Systick_Timer.c</name>
-    </file>
-    <file>
-        <name>$PROJ_DIR$\Systick_Timer.h</name>
-    </file>
-    <file>
-        <name>$PROJ_DIR$\tm4c123gh6pm.h</name>
+        <name>$PROJ_DIR$\Libraries\driverlib.a</name>
     </file>
 </project>
