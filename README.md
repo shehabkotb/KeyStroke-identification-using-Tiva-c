@@ -1,5 +1,5 @@
 # KeyStroke-identification-using-Tiva-c
-Identifying users based on the way they type a keyword
+Identifying users using decision tree based on the way they type a keyword
 ### Running the project
 connect tiva c to computer and turn it on
 
