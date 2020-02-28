@@ -7,6 +7,8 @@ open device manger & look under ports and take note of which com the tiva c is c
 
 right click on stellaris and open properties & then click on the details tab.
 ![](DeviceManager.png)
+
 open putty or any serial terminal and input the details above.
+
 ![](putty1.png)
 ![](putty2.png)
